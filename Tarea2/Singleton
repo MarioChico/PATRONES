@@ -1,0 +1,47 @@
+using System;
+
+namespace Singleton
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine(PSingleton.Instance.mensaje);
+            PSingleton.Instance.mensaje = "2";
+            Console.WriteLine(PSingleton.Instance.mensaje);
+
+            PSingleton.Instance.mensaje = "04/02/2019";
+            Console.WriteLine(PSingleton.Instance.mensaje);
+        }
+    }
+}
+
+///CLASE PSINGLETON///
+
+namespace Singleton
+{
+    public class PSingleton
+    {
+        private static PSingleton instance = null;
+        public string mensaje = "";
+
+        protected PSingleton()
+        {
+            mensaje = "Tarea";
+        }
+
+        public static PSingleton Instance
+        {
+            get
+            {
+                if(instance == null)
+                {
+                    instance = new PSingleton();
+                   
+                }
+
+               return instance;
+            }
+        }
+    }
+}
